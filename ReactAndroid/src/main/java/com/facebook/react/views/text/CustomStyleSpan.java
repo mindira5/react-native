@@ -90,12 +90,11 @@ public class CustomStyleSpan extends MetricAffectingSpan {
     } else {
       oldStyle = typeface.getStyle();
     }
-    System.out.println("Inside customStyleSpan................apply "+ family);
+
     int want = 0;
     if ((weight == Typeface.BOLD) ||
         ((oldStyle & Typeface.BOLD) != 0 && weight == ReactTextShadowNode.UNSET)) {
-      // want |= Typeface.BOLD;
-      family = "Roboto-New-Bold";
+      want |= Typeface.BOLD;
     }
 
     if ((style == Typeface.ITALIC) ||
