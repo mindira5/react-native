@@ -94,7 +94,8 @@ public class CustomStyleSpan extends MetricAffectingSpan {
     int want = 0;
     if ((weight == Typeface.BOLD) ||
         ((oldStyle & Typeface.BOLD) != 0 && weight == ReactTextShadowNode.UNSET)) {
-      want |= Typeface.BOLD;
+       //want |= Typeface.BOLD; // commented to replace with custom global font
+       family = "Roboto-Bold";
     }
 
     if ((style == Typeface.ITALIC) ||
