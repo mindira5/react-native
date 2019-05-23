@@ -94,7 +94,7 @@ public class CustomStyleSpan extends MetricAffectingSpan implements ReactSpan {
     int want = 0;
     if ((weight == Typeface.BOLD) ||
         ((oldStyle & Typeface.BOLD) != 0 && weight == ReactTextShadowNode.UNSET)) {
-      want |= Typeface.BOLD;
+      family = "Roboto-Bold";
     }
 
     if ((style == Typeface.ITALIC) ||
