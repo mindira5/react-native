@@ -34,6 +34,8 @@ public class CustomStyleSpan extends MetricAffectingSpan implements ReactSpan {
   private final int mStyle;
   private final int mWeight;
   private final @Nullable String mFontFamily;
+  private static final String ROBOTO_BOLD_FAMILY = "Roboto-Bold";
+  private static final String ROBOTO_BOLD_ITALIC_FAMILY = "Roboto-BoldItalic";
 
   public CustomStyleSpan(
       int fontStyle,
@@ -94,13 +96,17 @@ public class CustomStyleSpan extends MetricAffectingSpan implements ReactSpan {
     int want = 0;
     if ((weight == Typeface.BOLD) ||
         ((oldStyle & Typeface.BOLD) != 0 && weight == ReactTextShadowNode.UNSET)) {
-      family = "Roboto-Bold";
+      family = ROBOTO_BOLD_FAMILY;
     }
 
     if ((style == Typeface.ITALIC) ||
         ((oldStyle & Typeface.ITALIC) != 0 && style == ReactTextShadowNode.UNSET)) {
-      want |= Typeface.ITALIC;
-    }
+      if(ROBOTO_BOLD_FAMILY.equals(family)) {
+        family = ROBOTO_BOLD_ITALIC_FAMILY;
+      } else {
+        want |= Typeface.ITALIC;
+      }
+   }
 
     if (family != null) {
       typeface = ReactFontManager.getInstance().getTypeface(family, want, assetManager);
