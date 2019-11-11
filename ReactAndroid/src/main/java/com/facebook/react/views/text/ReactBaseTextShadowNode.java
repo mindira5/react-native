@@ -156,6 +156,7 @@ public abstract class ReactBaseTextShadowNode extends LayoutShadowNode {
       }
       child.markUpdateSeen();
     }
+    System.out.println("Text...."+sb);
     int end = sb.length();
     if (end >= start) {
       if (textShadowNode.mIsColorSet) {
