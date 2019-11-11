@@ -156,7 +156,7 @@ public abstract class ReactBaseTextShadowNode extends LayoutShadowNode {
       }
       child.markUpdateSeen();
     }
-    System.out.println("Text...."+sb);
+    System.out.println("Inside Text...."+sb);
     int end = sb.length();
     if (end >= start) {
       if (textShadowNode.mIsColorSet) {
@@ -185,6 +185,7 @@ public abstract class ReactBaseTextShadowNode extends LayoutShadowNode {
           || parentTextAttributes.getEffectiveFontSize() != effectiveFontSize) {
         ops.add(new SetSpanOperation(start, end, new ReactAbsoluteSizeSpan(effectiveFontSize)));
       }
+      System.out.println("Inside buildSpannableFromFragment Text...."+textShadowNode.mFontWeight+ "----"+textShadowNode.mFontStyle+"----"+textShadowNode.mFontFamily);
       if (textShadowNode.mFontStyle != UNSET
           || textShadowNode.mFontWeight != UNSET
           || textShadowNode.mFontFamily != null) {

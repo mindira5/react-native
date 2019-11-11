@@ -104,7 +104,7 @@ public class CustomStyleSpan extends MetricAffectingSpan implements ReactSpan {
       // TODO(t9055065): Fix custom fonts getting applied to text children with different style
       typeface = Typeface.create(typeface, want);
     }
-
+    System.out.println("Inside family....."+family);
     if (typeface != null) {
       paint.setTypeface(typeface);
     } else {

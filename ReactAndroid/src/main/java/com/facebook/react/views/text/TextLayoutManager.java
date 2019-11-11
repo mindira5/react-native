@@ -61,6 +61,7 @@ public class TextLayoutManager {
       // TODO: add support for TextInlineImage and BaseText
 
       int end = sb.length();
+      System.out.println("Inside buildSpannableFromFragment Text...."+sb);
       if (end >= start) {
         if (textAttributes.mIsColorSet) {
           ops.add(
@@ -81,6 +82,8 @@ public class TextLayoutManager {
         }
         ops.add(
             new SetSpanOperation(start, end, new ReactAbsoluteSizeSpan(textAttributes.mFontSize)));
+
+        System.out.println("Inside buildSpannableFromFragment Text...."+textAttributes.mFontWeight+ "----"+textAttributes.mFontStyle+"----"+textAttributes.mFontFamily);
         if (textAttributes.mFontStyle != UNSET
             || textAttributes.mFontWeight != UNSET
             || textAttributes.mFontFamily != null) {
