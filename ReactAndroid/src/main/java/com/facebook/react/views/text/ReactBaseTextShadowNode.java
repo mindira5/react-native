@@ -500,8 +500,8 @@ public abstract class ReactBaseTextShadowNode extends LayoutShadowNode {
         fontWeightString != null ? parseNumericFontWeight(fontWeightString) : UNSET;
     int fontWeight = fontWeightNumeric != UNSET ? fontWeightNumeric : Typeface.NORMAL;
 
-    if (fontWeight == 700 || "bold".equals(fontWeightString)) fontWeight = Typeface.BOLD;
-    else if (fontWeight == 400 || "normal".equals(fontWeightString)) fontWeight = Typeface.NORMAL;
+    if (fontWeight >= 500 || "bold".equals(fontWeightString)) fontWeight = Typeface.BOLD;
+    else if (fontWeight < 500 || "normal".equals(fontWeightString)) fontWeight = Typeface.NORMAL;
 
     if (fontWeight != mFontWeight) {
       mFontWeight = fontWeight;
